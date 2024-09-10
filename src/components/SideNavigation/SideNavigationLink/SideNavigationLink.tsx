@@ -36,8 +36,8 @@ const SideNavigationLink = <L = LinkDefaultElement, E = HTMLAnchorElement>({
     <SideNavigationBase
       className={classNames("p-side-navigation__link", className)}
       component={component ?? "a"}
+      forwardRef={forwardRef}
       {...props}
-      ref={forwardRef}
     />
   );
 };

@@ -25,6 +25,10 @@ export type Props<C> = PropsWithSpread<
      * The navigation item's status.
      */
     status?: ReactNode;
+    /**
+     * A ref to pass to the element.
+     */
+    forwardRef?: React.Ref<HTMLSpanElement> | null;
   },
   C
 >;
@@ -35,6 +39,7 @@ const SideNavigationBase = <C,>({
   icon,
   label,
   status,
+  forwardRef,
   ...props
 }: Props<C>) => {
   return (
@@ -42,7 +47,7 @@ const SideNavigationBase = <C,>({
       {icon ? (
         <Icon name={icon} light={dark} className="p-side-navigation__icon" />
       ) : null}
-      <span className="p-side-navigation__label">
+      <span className="p-side-navigation__label" ref={forwardRef}>
         <span className="p-side-navigation__label">{label}</span>
       </span>
       {status ? (
